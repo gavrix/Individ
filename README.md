@@ -26,11 +26,11 @@ Individ takes care of supporting objective-c messaging mechanism and modifies `-
 `-forwardingTargetForSelector:` and `-forwardInvocation:`. Basically, all usual messaging should be transparently adopted to
 new method implementations.
 
-Gurantees
+Guarantees
 =======
 
 Individ comes with unit tests for covering all possible ways to use it: various types passing and returning, responding to
-messaging mechanism, assertions. Since built-in unit tests cannot been run on device, and since we need these tests being 
+messaging mechanism, assertions. Since built-in unit tests cannot be run on device, and since we need these tests being 
 run on all supported platforms, We choosed GHUnit for unit testing. 
 If you want to ensure Individ works correctly on your platoform - go ahead and run these tests.
 
