@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "240D28F91660828100612151"
+               BlueprintIdentifier = "240D29141660833300612151"
                BuildableName = "Tests.app"
                BlueprintName = "Tests"
-               ReferencedContainer = "container:IndividExample.xcodeproj">
+               ReferencedContainer = "container:IndividTests.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "240D28F91660828100612151"
+            BlueprintIdentifier = "240D29141660833300612151"
             BuildableName = "Tests.app"
             BlueprintName = "Tests"
-            ReferencedContainer = "container:IndividExample.xcodeproj">
+            ReferencedContainer = "container:IndividTests.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -47,15 +47,14 @@
       buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
-      enableOpenGLFrameCaptureMode = "0"
       allowLocationSimulation = "YES">
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "240D28F91660828100612151"
+            BlueprintIdentifier = "240D29141660833300612151"
             BuildableName = "Tests.app"
             BlueprintName = "Tests"
-            ReferencedContainer = "container:IndividExample.xcodeproj">
+            ReferencedContainer = "container:IndividTests.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -70,10 +69,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "240D28F91660828100612151"
+            BlueprintIdentifier = "240D29141660833300612151"
             BuildableName = "Tests.app"
             BlueprintName = "Tests"
-            ReferencedContainer = "container:IndividExample.xcodeproj">
+            ReferencedContainer = "container:IndividTests.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
