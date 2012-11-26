@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "1.0">
+   <FileBreakpoints>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "IndividExample/NSObject+Individ.m"
+         timestampString = "375598357.223936"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "207"
+         endingLineNumber = "207"
+         landmarkName = "-setImplementationWithBlock:forSelector:withTypesEncoding:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "IndividExample/main.m"
+         timestampString = "375246080.874758"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "42"
+         endingLineNumber = "42"
+         landmarkName = "-testForwarding"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "IndividExample/NSObject+Individ.m"
+         timestampString = "375598357.223936"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "68"
+         endingLineNumber = "68"
+         landmarkName = "individMessageDispatchGetImp()"
+         landmarkType = "7">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "IndividExample/main.m"
+         timestampString = "375249843.552244"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "34"
+         endingLineNumber = "34"
+         landmarkName = "-testForwarding"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "IndividExample/NSObject+Individ.m"
+         timestampString = "375598357.223936"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "34"
+         endingLineNumber = "34"
+         landmarkName = "individForwardTarget()"
+         landmarkType = "7">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "IndividTests/GAISomeClass.m"
+         timestampString = "375251164.239081"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "37"
+         endingLineNumber = "37"
+         landmarkName = "-forwardingTargetForSelector:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "IndividExample/NSObject+Individ.m"
+         timestampString = "375598357.223936"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "102"
+         endingLineNumber = "102"
+         landmarkName = "individMessageDispatchGetImp()"
+         landmarkType = "7">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "IndividExample/GATestsResultViewController.m"
+         timestampString = "375381212.356734"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "184"
+         endingLineNumber = "184"
+         landmarkName = "-runTestsButtonPressed:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "IndividExample/GATestsResultViewController.m"
+         timestampString = "375381040.48602"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "169"
+         endingLineNumber = "169"
+         landmarkName = "-runTestsButtonPressed:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "IndividExample/NSObject+Individ.m"
+         timestampString = "375598357.223936"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "194"
+         endingLineNumber = "194"
+         landmarkName = "-setImplementationWithBlock:forSelector:withTypesEncoding:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "IndividExample/NSObject+Individ.m"
+         timestampString = "375598357.223936"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "182"
+         endingLineNumber = "182"
+         landmarkName = "-setImplementationWithBlock:forSelector:withTypesEncoding:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "IndividTests/IndividTests.m"
+         timestampString = "375598612.97485"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "269"
+         endingLineNumber = "269"
+         landmarkName = "-testReturnParams"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "IndividTests/IndividTests.m"
+         timestampString = "375589925.980469"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "145"
+         endingLineNumber = "145"
+         landmarkName = "-testCorrectImplementation"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "IndividTests/IndividTests.m"
+         timestampString = "375589925.980469"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "126"
+         endingLineNumber = "126"
+         landmarkName = "-testCorrectImplementation"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "IndividTests/GAISomeClass.m"
+         timestampString = "375584665.625491"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "26"
+         endingLineNumber = "26"
+         landmarkName = "-exisitngMethodReturningConst1"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "IndividTests/IndividTests.m"
+         timestampString = "375589925.980469"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "139"
+         endingLineNumber = "139"
+         landmarkName = "-testCorrectImplementation"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "IndividTests/IndividTests.m"
+         timestampString = "375598612.97485"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "230"
+         endingLineNumber = "230"
+         landmarkName = "-testReturnParams"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "IndividTests/IndividTests.m"
+         timestampString = "375598612.97485"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "232"
+         endingLineNumber = "232"
+         landmarkName = "-testReturnParams"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "IndividTests/IndividTests.m"
+         timestampString = "375598612.97485"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "246"
+         endingLineNumber = "246"
+         landmarkName = "-testReturnParams"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "IndividExample/NSObject+Individ.m"
+         timestampString = "375598357.223936"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "158"
+         endingLineNumber = "158"
+         landmarkName = "-setImplementationWithBlock:forSelector:withTypesEncoding:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "IndividExample/IndividDispatch.s"
+         timestampString = "375598441.746357"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "70"
+         endingLineNumber = "70">
+      </FileBreakpoint>
+   </FileBreakpoints>
+   <SymbolicBreakpoints>
+      <AddressBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         symbolName = "*0xda48a">
+      </AddressBreakpoint>
+   </SymbolicBreakpoints>
+   <ExceptionBreakpoints>
+      <ExceptionBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         scope = "0"
+         stopOnStyle = "0">
+      </ExceptionBreakpoint>
+   </ExceptionBreakpoints>
+</Bucket>

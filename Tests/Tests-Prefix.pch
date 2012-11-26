@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'IndividExample' target in the 'IndividExample' project
+// Prefix header for all source files of the 'Tests' target in the 'Tests' project
 //
 
 #import <Availability.h>
