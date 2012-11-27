@@ -140,18 +140,46 @@ BOOL respondsToSelectorImp(id self,SEL _cmd,SEL _sel)
 }
 
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark Individ public interface
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 @implementation NSObject (Individ)
 
 -(void) setImplementationWithBlock:(id) block
-              forSelector:(SEL) selector
-        withTypesEncoding:(char*)typesEncoding
+                       forSelector:(SEL) selector
+                    withReturnType:(char*)returnTypeEncoding
+           withParamsTypesEncoding:(char*)typesEncodings,...
 {
+    
+    NSMutableString* typeEncodingsMutable = [[NSMutableString alloc] initWithCString:returnTypeEncoding
+                                                                            encoding:NSASCIIStringEncoding];
+    [typeEncodingsMutable appendString:@"@:"];
+    if(typesEncodings)
+    {
+        [typeEncodingsMutable appendString:[NSString stringWithCString:typesEncodings
+                                                              encoding:NSASCIIStringEncoding]];
+        va_list ap;
+        va_start(ap, typesEncodings);
+        const char* nextTypeEncoding = va_arg(ap, const char*);
+        while(nextTypeEncoding)
+        {
+            [typeEncodingsMutable appendString:[NSString stringWithCString:nextTypeEncoding
+                                                                  encoding:NSASCIIStringEncoding]];
+            
+            nextTypeEncoding = va_arg(ap, const char*);
+        }
+        
+        va_end(ap);
+    }
+    
     Method existingMethod = class_getInstanceMethod([self class], selector);
     IMP existingImp = NULL;
     
     void * impPointer = individMessageDispatch;
+    
+    const char* typesEncoding = [typeEncodingsMutable cStringUsingEncoding:NSASCIIStringEncoding];
     
 #if !__i386__
     NSMethodSignature* signature = [NSMethodSignature signatureWithObjCTypes:typesEncoding];

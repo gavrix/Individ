@@ -88,7 +88,8 @@ typedef struct
          
      }
                             forSelector:@selector(nonExistingMethod)
-                      withTypesEncoding:"v@:"];
+                         withReturnType:@encode(void)
+                withParamsTypesEncoding:nil];
     STAssertTrue([object1 respondsToSelector:@selector(nonExistingMethod)],
              @"respondsToSelector failed for object to which new method added");
     
@@ -101,7 +102,9 @@ typedef struct
          
      }
                             forSelector:@selector(exisitngMethodReturningVoid)
-                      withTypesEncoding:"v@:"];
+                         withReturnType:@encode(void)
+                withParamsTypesEncoding:nil];
+
     
     STAssertTrue([object1 respondsToSelector:@selector(exisitngMethodReturningVoid)],
              @"respondsToSelector failed for object existing method added to");
@@ -126,14 +129,16 @@ typedef struct
          return kGAISomeConst2;
      }
                             forSelector:@selector(exisitngMethodReturningConst1)
-                      withTypesEncoding:"@@:"];
+                         withReturnType:@encode(NSString*)
+                withParamsTypesEncoding:nil];
     
     [object2 setImplementationWithBlock:(NSString* (^)(void)) ^
      {
          return kGAISomeConst3;
      }
                             forSelector:@selector(exisitngMethodReturningConst1)
-                      withTypesEncoding:"@@:"];
+                         withReturnType:@encode(NSString*)
+                withParamsTypesEncoding:nil];
     
     
     [object1 exisitngMethodReturningConst1];
@@ -165,9 +170,6 @@ typedef struct
     unsigned char charParam2 = 124;
     unsigned char charParam3 = 125;
     
-    
-    const char* cc = @encode(CGRect);
-    
     [object1 setImplementationWithBlock:^(id self, NSInteger i,CGRect rect)
      {
          STAssertEquals(intParam, i,
@@ -177,7 +179,8 @@ typedef struct
          
      }
                             forSelector:@selector(testInt:rect:)
-                      withTypesEncoding:"v@:i{?={?=ff}{?=ff}}"];
+                         withReturnType:@encode(void)
+                withParamsTypesEncoding:@encode(int),@encode(CGRect),nil];
     
     [object1 setImplementationWithBlock:^(id self, CGRect rect, NSInteger i)
      {
@@ -188,7 +191,8 @@ typedef struct
          
      }
                             forSelector:@selector(testRect:int:)
-                      withTypesEncoding:"v@:{?={?=ff}{?=ff}}i"];
+                         withReturnType:@encode(void)
+                withParamsTypesEncoding:@encode(CGRect),@encode(int),nil];
 
     [object1 setImplementationWithBlock:^(id self, unsigned char char1, unsigned char char2, unsigned char char3)
      {
@@ -203,7 +207,8 @@ typedef struct
          
      }
                             forSelector:@selector(testChar1:char2:char3:)
-                      withTypesEncoding:"v@:CCC"];
+                         withReturnType:@encode(void)
+                withParamsTypesEncoding:@encode(unsigned char),@encode(unsigned char),@encode(unsigned char),nil];
 
 
     
@@ -234,42 +239,48 @@ typedef struct
          return kRetunedParam;
      }
                             forSelector:@selector(newMethodReturningInt)
-                      withTypesEncoding:"i@:"];
+                         withReturnType:@encode(int)
+                withParamsTypesEncoding:nil];
     
     [object1 setImplementationWithBlock:(StructChar (^)(void)) ^
      {
          return kSTChar;
      }
                             forSelector:@selector(newMethodReturningSTChar)
-                      withTypesEncoding:"{?=C}@:"];
+                         withReturnType:@encode(StructChar)
+                withParamsTypesEncoding:nil];
     
     [object1 setImplementationWithBlock:(StructCharChar (^)(void)) ^
      {
          return kSTCharChar;
      }
                             forSelector:@selector(newMethodReturningSTCharChar)
-                      withTypesEncoding:"{?=CC}@:"];
+                         withReturnType:@encode(StructCharChar)
+                withParamsTypesEncoding:nil];
 
     [object1 setImplementationWithBlock:(StructCharInt (^)(void)) ^
      {
          return kSTCharInt;
      }
                             forSelector:@selector(newMethodReturningSTCharInt)
-                      withTypesEncoding:"{?=CI}@:"];
+                         withReturnType:@encode(StructCharInt)
+                withParamsTypesEncoding:nil];
     
     [object1 setImplementationWithBlock:(StructIntChar (^)(void)) ^
      {
          return kSTIntChar;
      }
                             forSelector:@selector(newMethodReturningSTIntChar)
-                      withTypesEncoding:"{?=IC}@:"];
+                         withReturnType:@encode(StructIntChar)
+                withParamsTypesEncoding:nil];
     
     [object1 setImplementationWithBlock:(StructIntInt (^)(void)) ^
      {
          return kSTIntInt;
      }
                             forSelector:@selector(newMethodReturningSTIntInt)
-                      withTypesEncoding:"{?=II}@:"];
+                         withReturnType:@encode(StructIntInt)
+                withParamsTypesEncoding:nil];
     
     
     STAssertTrue((int)[object1 newMethodReturningInt] == kRetunedParam,
@@ -286,18 +297,18 @@ typedef struct
     STAssertTrue([object1 newMethodReturningSTCharChar].f1 == kSTCharChar.f1 &&
                  [object1 newMethodReturningSTCharChar].f2 == kSTCharChar.f2,
                  @"Returning {char char} param failed");
-//
-//    STAssertTrue([object1 newMethodReturningSTCharInt].f1 == kSTCharInt.f1 &&
-//                 [object1 newMethodReturningSTCharInt].f2 == kSTCharInt.f2,
-//                 @"Returning {char int} param failed");
-//
-//    STAssertTrue([object1 newMethodReturningSTIntChar].f1 == kSTIntChar.f1 &&
-//                 [object1 newMethodReturningSTIntChar].f2 == kSTIntChar.f2,
-//                 @"Returning {int char} param failed");
-//
-//    STAssertTrue([object1 newMethodReturningSTIntInt].f1 == kSTIntInt.f1 &&
-//                 [object1 newMethodReturningSTIntInt].f2 == kSTIntInt.f2,
-//                 @"Returning {int char} param failed");
+
+    STAssertTrue([object1 newMethodReturningSTCharInt].f1 == kSTCharInt.f1 &&
+                 [object1 newMethodReturningSTCharInt].f2 == kSTCharInt.f2,
+                 @"Returning {char int} param failed");
+
+    STAssertTrue([object1 newMethodReturningSTIntChar].f1 == kSTIntChar.f1 &&
+                 [object1 newMethodReturningSTIntChar].f2 == kSTIntChar.f2,
+                 @"Returning {int char} param failed");
+
+    STAssertTrue([object1 newMethodReturningSTIntInt].f1 == kSTIntInt.f1 &&
+                 [object1 newMethodReturningSTIntInt].f2 == kSTIntInt.f2,
+                 @"Returning {int char} param failed");
 
 }
 
@@ -306,16 +317,35 @@ typedef struct
 {
 
     NSObject* object1 = [[GAISomeClass alloc] init];
-    STAssertThrows(
-                   [object1 setImplementationWithBlock: ^()
-                    {
-                        
-                    }
-                                           forSelector:@selector(exisitngMethodReturningVoid)
-                                     withTypesEncoding:"v@::"]
-
-                   ,
-                   @"Failed to throw exception because of invalid types encoding");
+    
+    BOOL __caughtException = NO;
+    @try {
+        [object1 setImplementationWithBlock: ^()
+         {
+             
+         }
+                                forSelector:@selector(exisitngMethodReturningVoid)
+                             withReturnType:@encode(void)
+                    withParamsTypesEncoding:@encode(SEL),nil];
+        
+    }
+    @catch (id anException) {
+        __caughtException = YES;
+    }
+    if (!__caughtException) {
+        [self failWithException:([NSException failureInRaise:[NSString stringWithUTF8String:
+                                                              "        [object1 setImplementationWithBlock: ^()\
+                                                              {\
+                                                                \
+                                                              }\
+                                                                                forSelector:@selector(exisitngMethodReturningVoid)\
+                                                                             withReturnType:@encode(void)\
+                                                                    withParamsTypesEncoding:@encode(SEL),nil];"]
+                                                   exception:nil
+                                                      inFile:[NSString stringWithUTF8String:__FILE__]
+                                                      atLine:__LINE__
+                                             withDescription:@"%@", STComposeString(@"Failed to throw exception because of invalid types encoding", nil)])]; \
+    }
 
 }
 
@@ -335,7 +365,8 @@ typedef struct
          notForwardedHookWasCalled = YES;
      }
                            forSelector:@selector(forwardedMethod)
-                     withTypesEncoding:"v@:"];
+                         withReturnType:@encode(void)
+                withParamsTypesEncoding:nil];
     
 
     GAISomeClass* object3 = [[GAISomeClass alloc] init];
@@ -344,7 +375,8 @@ typedef struct
          notForwardedHookWasCalled2 = YES;
      }
                             forSelector:@selector(forwardedMethod)
-                      withTypesEncoding:"v@:"];
+                         withReturnType:@encode(void)
+                withParamsTypesEncoding:nil];
     
     
     [object2 setForwardTarget:targetObject];

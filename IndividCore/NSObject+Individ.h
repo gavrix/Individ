@@ -14,6 +14,7 @@
 
 -(void) setImplementationWithBlock:(id) block
                        forSelector:(SEL) selector
-                 withTypesEncoding:(char*)typesEncoding;
+                    withReturnType:(char*)returnTypeEncoding
+                 withParamsTypesEncoding:(char*)typesEncoding,...;
 
 @end

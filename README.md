@@ -15,7 +15,8 @@ You create an objective-c object and add new method's (or replace existing's one
          //individual method implementation goes here
      }
                             forSelector:@selector(methodName)
-                      withTypesEncoding:"v@:"];
+                         withReturnType:@encode(void)
+		withParamsTypesEncoding:nil];
 ```
 
 
