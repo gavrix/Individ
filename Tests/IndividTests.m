@@ -16,36 +16,30 @@
 NSString* kGAISomeConst2 = @"kGAISomeConst2";
 NSString* kGAISomeConst3 = @"kGAISomeConst3";
 
-typedef struct
-{
+typedef struct {
     unsigned char f1;
 } StructChar;
 
-typedef struct
-{
+typedef struct {
     unsigned char f1;
 } StructInt;
 
-typedef struct
-{
+typedef struct {
     unsigned char f1;
     unsigned char f2;
 } StructCharChar;
 
-typedef struct
-{
+typedef struct {
     unsigned char f1;
     unsigned int f2;
 } StructCharInt;
 
-typedef struct
-{
+typedef struct {
     unsigned int f1;
     unsigned char f2;
 } StructIntChar;
 
-typedef struct
-{
+typedef struct {
     unsigned int f1;
     unsigned int f2;
 } StructIntInt;
@@ -66,25 +60,20 @@ typedef struct
 {
 
 }
-- (void)setUp
-{
-    [super setUp];
-    
 
+- (void)setUp {
+    [super setUp];
 }
 
-- (void)tearDown
-{
+- (void)tearDown{
     [super tearDown];
 }
 
-- (void)testRespondsToSelector
-{
-    NSObject* object1 = [[GAISomeClass alloc] init];
-    NSObject* object2 = [[GAISomeClass alloc] init];
+- (void)testRespondsToSelector {
+    NSObject *object1 = [[GAISomeClass alloc] init];
+    NSObject *object2 = [[GAISomeClass alloc] init];
     
-    [object1 setImplementationWithBlock: ^()
-     {
+    [object1 setImplementationWithBlock: ^(){
          
      }
                             forSelector:@selector(nonExistingMethod)
@@ -97,8 +86,7 @@ typedef struct
              @"respondsToSelector failed for object other than one new method added to");
     
 
-    [object2 setImplementationWithBlock: ^()
-     {
+    [object2 setImplementationWithBlock: ^() {
          
      }
                             forSelector:@selector(exisitngMethodReturningVoid)
@@ -117,23 +105,20 @@ typedef struct
     
 }
 
--(void) testCorrectImplementation
-{
-    GAISomeClass* object1 = [[GAISomeClass alloc] init];
-    GAISomeClass* object2 = [[GAISomeClass alloc] init];
-    GAISomeClass* object3 = [[GAISomeClass alloc] init];
+- (void)testCorrectImplementation {
+    GAISomeClass *object1 = [[GAISomeClass alloc] init];
+    GAISomeClass *object2 = [[GAISomeClass alloc] init];
+    GAISomeClass *object3 = [[GAISomeClass alloc] init];
     
  
-    [object1 setImplementationWithBlock:(NSString* (^)(void)) ^
-     {
+    [object1 setImplementationWithBlock:(NSString* (^)(void)) ^{
          return kGAISomeConst2;
      }
                             forSelector:@selector(exisitngMethodReturningConst1)
                          withReturnType:@encode(NSString*)
                 withParamsTypesEncoding:nil];
     
-    [object2 setImplementationWithBlock:(NSString* (^)(void)) ^
-     {
+    [object2 setImplementationWithBlock:(NSString* (^)(void)) ^{
          return kGAISomeConst3;
      }
                             forSelector:@selector(exisitngMethodReturningConst1)
@@ -161,17 +146,15 @@ typedef struct
     [object3 release];
 }
 
--(void) testParametersPassing
-{
-    GAISomeClass* object1 = [[GAISomeClass alloc] init];
+- (void)testParametersPassing {
+    GAISomeClass *object1 = [[GAISomeClass alloc] init];
     NSInteger intParam = 12345;
     CGRect rectParam = CGRectMake(1, 2, 3, 4);
     unsigned char charParam1 = 123;
     unsigned char charParam2 = 124;
     unsigned char charParam3 = 125;
     
-    [object1 setImplementationWithBlock:^(id self, NSInteger i,CGRect rect)
-     {
+    [object1 setImplementationWithBlock:^(id self, NSInteger i,CGRect rect) {
          STAssertEquals(intParam, i,
                         @"First integer param in overriden method is invalid");
          STAssertTrue(CGRectEqualToRect(rectParam, rect),
@@ -182,8 +165,7 @@ typedef struct
                          withReturnType:@encode(void)
                 withParamsTypesEncoding:@encode(int),@encode(CGRect),nil];
     
-    [object1 setImplementationWithBlock:^(id self, CGRect rect, NSInteger i)
-     {
+    [object1 setImplementationWithBlock:^(id self, CGRect rect, NSInteger i) {
          STAssertEquals(intParam, i,
                         @"First CGRect param in overriden method is invalid");
          STAssertTrue(CGRectEqualToRect(rectParam, rect),
@@ -194,8 +176,7 @@ typedef struct
                          withReturnType:@encode(void)
                 withParamsTypesEncoding:@encode(CGRect),@encode(int),nil];
 
-    [object1 setImplementationWithBlock:^(id self, unsigned char char1, unsigned char char2, unsigned char char3)
-     {
+    [object1 setImplementationWithBlock:^(id self, unsigned char char1, unsigned char char2, unsigned char char3) {
          STAssertEquals(charParam1, char1,
                         @"First char param in overriden method is invalid");
 
@@ -211,18 +192,19 @@ typedef struct
                 withParamsTypesEncoding:@encode(unsigned char),@encode(unsigned char),@encode(unsigned char),nil];
 
 
-    
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wobjc-method-access"
     [object1 testInt:intParam rect:rectParam];
     [object1 testRect:rectParam int:intParam];
     [object1 testChar1:charParam1 char2:charParam2 char3:charParam3];
+#pragma clang diagnostic pop
     [object1 release];
 }
 
 
 
--(void) testReturnParams
-{
-    GAISomeClass* object1 = [[GAISomeClass alloc] init];
+- (void)testReturnParams {
+    GAISomeClass *object1 = [[GAISomeClass alloc] init];
     int kRetunedParam = 123;
     
     StructChar kSTChar; kSTChar.f1 = 113;
@@ -234,48 +216,42 @@ typedef struct
     
 //    const char* ss = @encode(StructCharInt);
     
-    [object1 setImplementationWithBlock:(int (^)(void)) ^
-     {
+    [object1 setImplementationWithBlock:(int (^)(void)) ^{
          return kRetunedParam;
      }
                             forSelector:@selector(newMethodReturningInt)
                          withReturnType:@encode(int)
                 withParamsTypesEncoding:nil];
     
-    [object1 setImplementationWithBlock:(StructChar (^)(void)) ^
-     {
+    [object1 setImplementationWithBlock:(StructChar (^)(void)) ^{
          return kSTChar;
      }
                             forSelector:@selector(newMethodReturningSTChar)
                          withReturnType:@encode(StructChar)
                 withParamsTypesEncoding:nil];
     
-    [object1 setImplementationWithBlock:(StructCharChar (^)(void)) ^
-     {
+    [object1 setImplementationWithBlock:(StructCharChar (^)(void)) ^{
          return kSTCharChar;
      }
                             forSelector:@selector(newMethodReturningSTCharChar)
                          withReturnType:@encode(StructCharChar)
                 withParamsTypesEncoding:nil];
 
-    [object1 setImplementationWithBlock:(StructCharInt (^)(void)) ^
-     {
+    [object1 setImplementationWithBlock:(StructCharInt (^)(void)) ^{
          return kSTCharInt;
      }
                             forSelector:@selector(newMethodReturningSTCharInt)
                          withReturnType:@encode(StructCharInt)
                 withParamsTypesEncoding:nil];
     
-    [object1 setImplementationWithBlock:(StructIntChar (^)(void)) ^
-     {
+    [object1 setImplementationWithBlock:(StructIntChar (^)(void)) ^{
          return kSTIntChar;
      }
                             forSelector:@selector(newMethodReturningSTIntChar)
                          withReturnType:@encode(StructIntChar)
                 withParamsTypesEncoding:nil];
     
-    [object1 setImplementationWithBlock:(StructIntInt (^)(void)) ^
-     {
+    [object1 setImplementationWithBlock:(StructIntInt (^)(void)) ^{
          return kSTIntInt;
      }
                             forSelector:@selector(newMethodReturningSTIntInt)
@@ -313,15 +289,13 @@ typedef struct
 }
 
 
--(void) testAssertionWhileIsertingMethod
-{
+- (void)testAssertionWhileIsertingMethod {
 
-    NSObject* object1 = [[GAISomeClass alloc] init];
+    NSObject *object1 = [[GAISomeClass alloc] init];
     
     BOOL __caughtException = NO;
     @try {
-        [object1 setImplementationWithBlock: ^()
-         {
+        [object1 setImplementationWithBlock: ^() {
              
          }
                                 forSelector:@selector(exisitngMethodReturningVoid)
@@ -349,19 +323,17 @@ typedef struct
 
 }
 
--(void) testForwardTarget
-{
+- (void)testForwardTarget {
     __block BOOL forwardedHookWasCalled = NO;
     __block BOOL notForwardedHookWasCalled = NO;
     __block BOOL notForwardedHookWasCalled2 = NO;
-    NSObject* object1 = [[GAISomeClass alloc] init];
-    GAISomeClass* object2 = [[GAISomeClass alloc] init];
-    GAIForwardTargetClass* targetObject = [[GAIForwardTargetClass alloc] initWithHookBlock:^
-                                           {
+    NSObject *object1 = [[GAISomeClass alloc] init];
+    GAISomeClass *object2 = [[GAISomeClass alloc] init];
+    GAIForwardTargetClass *targetObject = [[GAIForwardTargetClass alloc] initWithHookBlock:^{
                                                forwardedHookWasCalled = YES;
                                            }];
-    [object1 setImplementationWithBlock:^
-     {
+    
+    [object1 setImplementationWithBlock:^{
          notForwardedHookWasCalled = YES;
      }
                            forSelector:@selector(forwardedMethod)
@@ -369,9 +341,8 @@ typedef struct
                 withParamsTypesEncoding:nil];
     
 
-    GAISomeClass* object3 = [[GAISomeClass alloc] init];
-    [object3 setImplementationWithBlock:^
-     {
+    GAISomeClass *object3 = [[GAISomeClass alloc] init];
+    [object3 setImplementationWithBlock:^{
          notForwardedHookWasCalled2 = YES;
      }
                             forSelector:@selector(forwardedMethod)
@@ -381,10 +352,13 @@ typedef struct
     
     [object2 setForwardTarget:targetObject];
     
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wobjc-method-access"
     [object2 forwardedMethod];
     [object1 forwardedMethod];
     [object3 forwardedMethod];
-
+#pragma clang diagnostic pop
+    
     STAssertTrue(forwardedHookWasCalled,
                  @"method was not forwared to desired target");
     STAssertTrue(notForwardedHookWasCalled,
